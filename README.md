@@ -1,7 +1,7 @@
 # Data Collection Sample Dataset Generator
 
 A Python script to generate a sample dataset representing OEE production environment data. 
-
+ 
 ## Description
 
 A script to generate a sample OEE (Overall Equipment Effectiveness) dataset. This dataset is intended
