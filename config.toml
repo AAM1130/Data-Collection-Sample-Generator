@@ -1,0 +1,50 @@
+[work_cell]
+# ID of the first machine (e.g., M001, P100)
+first_machine_id = "M051"
+# Total number of machines in the work cell
+machine_count = 6
+# Default efficiency for all machines in percentage
+default_machine_efficiency = 95.0
+
+# Optional: Specific efficiencies for individual machines
+[machine_efficiencies]
+# M051 = 98.0
+# M052 = 96.0
+
+[shifts]
+# Schedule for each shift
+# The `active_machines` value determines how many machines are running per shift.
+shift_schedule = [
+    { name = "1st", start_time = "08:00", end_time = "16:00", active_machines = 6 },
+    { name = "2nd", start_time = "16:00", end_time = "00:00", active_machines = 4 },
+    { name = "3rd", start_time = "00:00", end_time = "08:00", active_machines = 3 }
+]
+# Duration of a standard break in minutes
+break_duration_minutes = 10
+# Duration of a lunch break in minutes
+lunch_duration_minutes = 30
+# Times during the shift (in hours from the start) for breaks and lunch
+# Assumes breaks are 10 min, lunch is 30 min.
+break_and_lunch_times = [2, 4, 6]
+# A range (min and max) in seconds for a random startup delay for each machine at the start of a new shift
+shift_startup_delay_seconds = [30, 180]
+
+[order]
+# Total number of parts to produce for the entire order
+total_parts = 2000
+# The base cycle time in seconds for one part at 100% efficiency
+base_cycle_time_seconds = 74.0
+
+[operators]
+# The default efficiency for operators in percentage
+default_operator_efficiency = 90.0
+# The base handling time for an operator in seconds at 100% efficiency
+base_handling_time_seconds = 5.0
+# The operator efficiency variation per cycle (e.g., 5.0 = +/- 5%)
+operator_efficiency_variation_percentage = 5.0
+# The time in seconds it takes an operator to resume after a break or lunch
+resume_delay_seconds = 120
+
+[output]
+# The name of the output CSV file
+filename = "production_data.csv"
